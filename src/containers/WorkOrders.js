@@ -1,14 +1,15 @@
 import React from 'react';
-import {Text,View} from 'react-native'
+import {SafeAreaView} from 'react-native';
+import WorkOrdersView from '../views/WorkOrders';
+import workOdersData from '../../data.json';
+
 class WorkOrders extends React.Component {
-  
     render() {
         return(
-            <View>
-                <Text>Hi</Text>
-            </View>  
+            <SafeAreaView style={{flex: 1, backgroundColor: '#ddd'}}>
+                <WorkOrdersView woList={workOdersData}/>
+            </SafeAreaView>
         )
-        
     }
   }
   

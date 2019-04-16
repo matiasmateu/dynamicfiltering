@@ -6,7 +6,7 @@
         "Type":"Installation",
         "StartDate":"22-04-2016 13:00:00",
         "EndDate":"22-04-2016 14:00:00",
-        "Color":"Blue",
+        "Color":"blue",
         "Description":"Install new KoelKast SF-123"
     },
     {
@@ -14,9 +14,9 @@
         "Name":"WO-0002",
         "Status":"In progress",
         "Type":"Maintenance",
-        "StartDate":"22-04-2016 14:00:00",
-        "EndDate":"22-04-2016 15:00:00",
-        "Color":"Purple",
+        "StartDate":"22-04-2016 10:00:00",
+        "EndDate":"22-04-2016 11:00:00",
+        "Color":"purple",
         "Description":"Check freon on split-system"
     },
     {
@@ -24,9 +24,9 @@
         "Name":"WO-0003",
         "Status":"Closed",
         "Type":"Installation",
-        "StartDate":"21-04-2016 13:00:00",
-        "EndDate":"21-04-2016 14:00:00",
-        "Color":"Black",
+        "StartDate":"21-04-2016 15:00:00",
+        "EndDate":"21-04-2016 16:00:00",
+        "Color":"black",
         "Description":"Install new appleTv"
     },
     {
@@ -34,9 +34,9 @@
         "Name":"WO-0004",
         "Status":"Open",
         "Type":"Installation",
-        "StartDate":"23-04-2016 13:00:00",
-        "EndDate":"23-04-2016 14:00:00",
-        "Color":"Blue",
+        "StartDate":"23-04-2016 08:00:00",
+        "EndDate":"23-04-2016 09:00:00",
+        "Color":"blue",
         "Description":"Install new TV Antenna"
     },
     {
@@ -44,9 +44,9 @@
         "Name":"WO-0005",
         "Status":"Open",
         "Type":"Maintenance",
-        "StartDate":"24-04-2016 13:00:00",
-        "EndDate":"24-04-2016 14:00:00",
-        "Color":"Blue",
+        "StartDate":"24-04-2016 16:30:00",
+        "EndDate":"24-04-2016 17:30:00",
+        "Color":"blue",
         "Description":"Install new Alarm"
     },
     {
@@ -54,9 +54,9 @@
         "Name":"WO-0006",
         "Status":"Closed",
         "Type":"Installation",
-        "StartDate":"20-04-2016 13:00:00",
+        "StartDate":"20-04-2016 12:00:00",
         "EndDate":"20-04-2016 14:00:00",
-        "Color":"Black",
+        "Color":"black",
         "Description":"Install new Security System"
     },
     {
@@ -64,9 +64,9 @@
         "Name":"WO-0007",
         "Status":"Closed",
         "Type":"Installation",
-        "StartDate":"19-04-2016 13:00:00",
+        "StartDate":"19-04-2016 11:00:00",
         "EndDate":"19-04-2016 14:00:00",
-        "Color":"Black",
+        "Color":"black",
         "Description":"Install new Door"
     },
     {
@@ -74,9 +74,9 @@
         "Name":"WO-0008",
         "Status":"In progress",
         "Type":"Installation",
-        "StartDate":"22-04-2016 13:00:00",
-        "EndDate":"22-04-2016 14:00:00",
-        "Color":"Blue",
+        "StartDate":"22-04-2016 11:00:00",
+        "EndDate":"22-04-2016 13:00:00",
+        "Color":"blue",
         "Description":"Install new Kitchen"
-    },
+    }
 ]
