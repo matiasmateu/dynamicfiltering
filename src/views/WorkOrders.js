@@ -1,8 +1,10 @@
 import React from "react";
 import { StyleSheet, ScrollView } from "react-native";
-import { Text, Container, Header, Card, CardItem, Body, Left, Right } from 'native-base';
+import { Text, Container, Header, Card, CardItem, Body, Left, Right, Button } from 'native-base';
 import {PRIMARY_COLOR} from '../../constants/styles'
-import { withOrientation } from "react-navigation";
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import workOrderData from '../../data.json'
+
 
 /**
  *  Creates a list of work oders (CardItems) from a list of them.
@@ -52,14 +54,12 @@ const WorkOrdersList = (woList) => {
  *  Creates a header and a scroll view containing a list of work orders items
  *  @woList is an object containing an array of work orders
  */
-const WorkOrdersView = (woList) => {
+const WorkOrdersView = () => {
+  let IconComponent = Ionicons;
   return (
         <Container>
-            <Header style={styles.topMenu}>
-                <Text style={styles.headerText}>Work Orders</Text>
-            </Header>
             <ScrollView>
-                <WorkOrdersList woList={woList.woList}/>
+                <WorkOrdersList woList={workOrderData}/>
             </ScrollView>
         </Container>
   );
@@ -67,12 +67,16 @@ const WorkOrdersView = (woList) => {
 
 const styles = StyleSheet.create({
     topMenu:{
-        paddingTop:24,
+        paddingTop:40,
         backgroundColor:PRIMARY_COLOR,
+        height:80,
     },
     headerText:{
         color:"white"
     },
+    buttonFilter:{
+        backgroundColor:PRIMARY_COLOR,
+    }
 });
 
 export default WorkOrdersView;
