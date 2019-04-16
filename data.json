@@ -1,0 +1,82 @@
+[
+    {
+        "Id":"uniqwo1",
+        "Name":"WO-0001",
+        "Status":"Open",
+        "Type":"Installation",
+        "StartDate":"22-04-2016 13:00:00",
+        "EndDate":"22-04-2016 14:00:00",
+        "Color":"Blue",
+        "Description":"Install new KoelKast SF-123"
+    },
+    {
+        "Id":"uniqwo2",
+        "Name":"WO-0002",
+        "Status":"In progress",
+        "Type":"Maintenance",
+        "StartDate":"22-04-2016 14:00:00",
+        "EndDate":"22-04-2016 15:00:00",
+        "Color":"Purple",
+        "Description":"Check freon on split-system"
+    },
+    {
+        "Id":"uniqwo3",
+        "Name":"WO-0003",
+        "Status":"Closed",
+        "Type":"Installation",
+        "StartDate":"21-04-2016 13:00:00",
+        "EndDate":"21-04-2016 14:00:00",
+        "Color":"Black",
+        "Description":"Install new appleTv"
+    },
+    {
+        "Id":"uniqwo4",
+        "Name":"WO-0004",
+        "Status":"Open",
+        "Type":"Installation",
+        "StartDate":"23-04-2016 13:00:00",
+        "EndDate":"23-04-2016 14:00:00",
+        "Color":"Blue",
+        "Description":"Install new TV Antenna"
+    },
+    {
+        "Id":"uniqwo5",
+        "Name":"WO-0005",
+        "Status":"Open",
+        "Type":"Maintenance",
+        "StartDate":"24-04-2016 13:00:00",
+        "EndDate":"24-04-2016 14:00:00",
+        "Color":"Blue",
+        "Description":"Install new Alarm"
+    },
+    {
+        "Id":"uniqwo6",
+        "Name":"WO-0006",
+        "Status":"Closed",
+        "Type":"Installation",
+        "StartDate":"20-04-2016 13:00:00",
+        "EndDate":"20-04-2016 14:00:00",
+        "Color":"Black",
+        "Description":"Install new Security System"
+    },
+    {
+        "Id":"uniqwo7",
+        "Name":"WO-0007",
+        "Status":"Closed",
+        "Type":"Installation",
+        "StartDate":"19-04-2016 13:00:00",
+        "EndDate":"19-04-2016 14:00:00",
+        "Color":"Black",
+        "Description":"Install new Door"
+    },
+    {
+        "Id":"uniqwo8",
+        "Name":"WO-0008",
+        "Status":"In progress",
+        "Type":"Installation",
+        "StartDate":"22-04-2016 13:00:00",
+        "EndDate":"22-04-2016 14:00:00",
+        "Color":"Blue",
+        "Description":"Install new Kitchen"
+    },
+]
