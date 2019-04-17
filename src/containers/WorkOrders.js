@@ -3,12 +3,14 @@ import WorkOrdersView from '../views/WorkOrders';
 import workOdersData from '../../data.json';
 import { connect } from 'react-redux'
 import { getAllWorkOrders } from '../../store/actions/workOrders'
+import { getAllFilters } from '../../store/actions/filters'
 import { Text, Spinner } from 'native-base'
 
 
 class WorkOrders extends React.Component {
 
     componentDidMount() {
+        this.props.getAllFilters()
         this.props.getAllWorkOrders()
     }
 
@@ -24,10 +26,9 @@ class WorkOrders extends React.Component {
     }
 }
 
-
 const mapStateToProps = state => ({
     workOrders: state.workOrders,
     isLoading:  ( state.workOrders.length <= 0 )
 })
 
-export default connect(mapStateToProps, { getAllWorkOrders })(WorkOrders);
+export default connect(mapStateToProps, { getAllWorkOrders,getAllFilters })(WorkOrders);
