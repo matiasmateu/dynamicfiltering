@@ -6,7 +6,7 @@ class DashBoardScreen extends React.Component{
         return (
             <View style={{flex:1, alignItems:'center',justifyContent:'center'}}>
                 <Text>
-                    Dash Board
+                    DASHBOARD
                 </Text>
             </View>
         )
