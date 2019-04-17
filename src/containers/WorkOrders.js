@@ -1,17 +1,33 @@
 import React from 'react';
-import {SafeAreaView, Container} from 'react-native';
 import WorkOrdersView from '../views/WorkOrders';
 import workOdersData from '../../data.json';
-import PRIMARY_COLOR from '../../constants/styles'
+import { connect } from 'react-redux'
+import { getAllWorkOrders } from '../../store/actions/workOrders'
+import { Text, Spinner } from 'native-base'
 
 
 class WorkOrders extends React.Component {
+
+    componentDidMount() {
+        this.props.getAllWorkOrders()
+    }
+
     render() {
-        return(
-            <WorkOrdersView woList={workOdersData}/>
-        )
+        const {isLoading, workOrders} =  this.props
+
+        if (isLoading) return <Spinner color='blue' />
+
+        return (
+            <WorkOrdersView 
+                workOrders={workOrders} />
+        )   
     }
 }
 
 
-export default WorkOrders;
+const mapStateToProps = state => ({
+    workOrders: state.workOrders,
+    isLoading:  ( state.workOrders.length <= 0 )
+})
+
+export default connect(mapStateToProps, { getAllWorkOrders })(WorkOrders);

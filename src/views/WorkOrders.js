@@ -11,8 +11,9 @@ import workOrderData from '../../data.json'
  *  @woList is an object containing an array of work orders
  */
 const WorkOrdersList = (woList) => {
+    
     return (
-        woList.woList
+        woList.woList.workOrders
             .map((workOrder,index)=>{
                 return(
                     <Card key={index}>
@@ -54,15 +55,19 @@ const WorkOrdersList = (woList) => {
  *  Creates a header and a scroll view containing a list of work orders items
  *  @woList is an object containing an array of work orders
  */
-const WorkOrdersView = () => {
+const WorkOrdersView = (workOrders) => {
+
   let IconComponent = Ionicons;
+    
   return (
         <Container>
             <ScrollView>
-                <WorkOrdersList woList={workOrderData}/>
+                <WorkOrdersList woList={workOrders}/>  
             </ScrollView>
         </Container>
-  );
+    );
+  
+  
 }
 
 const styles = StyleSheet.create({

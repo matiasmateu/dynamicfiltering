@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import filtersReducer from './filters';
+import workOrders from './workOrders';
 
 export default combineReducers({
-  filtersReducer,
+  workOrders,
 });
