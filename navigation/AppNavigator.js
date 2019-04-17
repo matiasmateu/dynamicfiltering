@@ -7,7 +7,6 @@ import {PRIMARY_COLOR} from '../constants/styles'
 import ProfileScreen from '../src/views/Profile'
 import SettingsScreen from '../src/views/Settings'
 import Icon from '@expo/vector-icons/Ionicons'
-import DashboardScreen from '../src/views/Dashboard'
 import FiltersView from '../src/views/Filters';
 
 
