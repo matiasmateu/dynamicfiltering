@@ -18,6 +18,7 @@ function applyFilters (workOrders,filters){
     return filteredWorkOrders
 }
 
+
 /**
  * @filterList array with all the filters
  * @filterToUpdate a single filter that has been activated or deactivated. 

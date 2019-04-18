@@ -2,7 +2,7 @@
     {
         "Type":"Simple",
         "Key":"Status",
-        "Value":"Open",
+        "Value":"open",
         "Active":false
     },
     {
@@ -14,7 +14,7 @@
     {
         "Type":"Simple",
         "Key":"Type",
-        "Value":"Installation",
+        "Value":"installation",
         "Active":false
     },
     {

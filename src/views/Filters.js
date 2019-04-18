@@ -23,12 +23,16 @@ class FiltersView extends React.Component{
                       this.props.updateFilters(filter)
                       this.props.applyFilters()
                     }}>
-                      <CheckBox checked={filter["Active"]}/>
+                      <CheckBox checked={filter["Active"]} onPress={()=>{
+                      this.props.updateFilters(filter)
+                      this.props.applyFilters()
+                    }}/>
                       <Body><Text>{filter["Key"]}:{filter["Value"]}</Text></Body>
                     </ListItem>)
                 }
               })
             }
+            
             <View style={styles.customFilters}> 
               <Text>Add more filters:</Text>
               {filters
@@ -42,10 +46,11 @@ class FiltersView extends React.Component{
                             {
                               "Type":"Simple",
                               "Key":filter.askUser,
-                              "Value":text.nativeEvent.text,
+                              "Value":text.nativeEvent.text.toLowerCase(),
                               "Active":false
                             }
                           )
+                          this.props.navigation.openDrawer()
                          }}/>
                       </Item>
                     )
