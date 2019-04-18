@@ -78,5 +78,15 @@
         "EndDate":"22-04-2016 13:00:00",
         "Color":"purple",
         "Description":"Install new Kitchen"
-    }
+    },
+    {
+        "Id":"uniqwo9",
+        "Name":"WO-0009",
+        "Status":"open",
+        "Type":"removal",
+        "StartDate":"22-04-2016 10:00:00",
+        "EndDate":"22-04-2016 11:00:00",
+        "Color":"purple",
+        "Description":"remove freon on split-system"
+    },
 ]

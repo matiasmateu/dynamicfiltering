@@ -27,7 +27,7 @@ class FiltersView extends React.Component{
                       this.props.updateFilters(filter)
                       this.props.applyFilters()
                     }}/>
-                      <Body><Text>{filter["Key"]}:{filter["Value"]}</Text></Body>
+                      <Body><Text>{filter["Value"]}</Text></Body>
                     </ListItem>)
                 }
               })
@@ -41,7 +41,7 @@ class FiltersView extends React.Component{
                     return (
                       <Item key={index} floatingLabel style={styles.customFilterItem}>
                         <Label>{filter.askUser}</Label>
-                        <Input onSubmitEditing={(text)=>{
+                        <Input ref="demo" onSubmitEditing={(text)=>{
                           this.props.createFilter(
                             {
                               "Type":"Simple",
@@ -49,8 +49,10 @@ class FiltersView extends React.Component{
                               "Value":text.nativeEvent.text.toLowerCase(),
                               "Active":false
                             }
+                          
                           )
                           this.props.navigation.openDrawer()
+                          
                          }}/>
                       </Item>
                     )
