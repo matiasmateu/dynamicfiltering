@@ -1,26 +1,28 @@
 [
     {
-        "id":1,
+        "Type":"Simple",
         "Key":"Status",
-        "Value":"Open",
+        "Value":"open",
         "Active":false
     },
     {
-        "id":2,
+        "Type":"Simple",
         "Key":"Color",
         "Value":"black",
         "Active":false
     },
     {
-        "id":3,
+        "Type":"Simple",
         "Key":"Type",
-        "Value":"Installation",
+        "Value":"installation",
         "Active":false
     },
     {
-        "id":4,
-        "Key":"Color",
-        "Value":"purple",
-        "Active":false
+        "Type":"Custom",
+        "askUser":"Type"
+    },
+    {
+        "Type":"Custom",
+        "askUser":"Color"
     }
 ]
