@@ -3,6 +3,7 @@ import filters from '../../filters.json'
 export const FILTERS_FETCHED = "FILTERS_FETCHED"
 export const FILTERS_UPDATED = "FILTERS_UPDATED"
 export const FILTERS_APPLIED = "FILTERS_APPLIED"
+export const FILTER_CREATED = "FILTER_CREATED"
 
 const filtersFetched = filters => ({
     type: FILTERS_FETCHED,
@@ -32,4 +33,14 @@ const filtersApplied = (state) => ({
 
 export const applyFilters = () => (dispatch,getState) => {
     dispatch(filtersApplied(getState()))
+}
+
+const filterCreated = (filter,state) => ({
+    type: FILTER_CREATED,
+    state:state,
+    payload:filter
+})
+
+export const createFilter = (filter) => (dispatch,getState) => {
+    dispatch(filterCreated(filter,getState()))
 }
