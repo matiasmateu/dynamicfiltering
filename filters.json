@@ -8,7 +8,19 @@
     {
         "id":2,
         "Key":"Color",
-        "Value":"blue",
+        "Value":"black",
+        "Active":false
+    },
+    {
+        "id":3,
+        "Key":"Type",
+        "Value":"Installation",
+        "Active":false
+    },
+    {
+        "id":4,
+        "Key":"Color",
+        "Value":"purple",
         "Active":false
     }
 ]
