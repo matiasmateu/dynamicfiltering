@@ -28,6 +28,7 @@ class WorkOrders extends React.Component {
 
 const mapStateToProps = state => ({
     workOrders: state.workOrders,
+    filters: state.filters.filterList,
     isLoading:  ( state.workOrders.length <= 0 )
 })
 

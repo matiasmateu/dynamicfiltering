@@ -7,14 +7,8 @@
     },
     {
         "id":2,
-        "Key":"Status",
-        "Value":"In progress",
-        "Active":false
-    },
-    {
-        "id":3,
-        "Key":"Status",
-        "Value":"Closed",
+        "Key":"Color",
+        "Value":"blue",
         "Active":false
     }
 ]
