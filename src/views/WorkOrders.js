@@ -3,8 +3,6 @@ import { StyleSheet, ScrollView } from "react-native";
 import { Text, Container, Header, Card, CardItem, Body, Left, Right, Button } from 'native-base';
 import {PRIMARY_COLOR} from '../../constants/styles'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import workOrderData from '../../data.json'
-
 
 /**
  *  Creates a list of work oders (CardItems) from a list of them.
@@ -17,7 +15,7 @@ const WorkOrdersList = (woList) => {
             .map((workOrder,index)=>{
                 return(
                     <Card key={index}>
-                        <CardItem header style={{backgroundColor:workOrder.Color,height:20}}>
+                        <CardItem header style={{backgroundColor:workOrder.Color}}>
                             <Left>
                                 <Text style={styles.headerText}>
                                     {workOrder.StartDate.slice(0,10)}
