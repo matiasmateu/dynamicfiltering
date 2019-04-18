@@ -1,8 +1,8 @@
 import filters from '../../filters.json'
 
 export const FILTERS_FETCHED = "FILTERS_FETCHED"
-export const FILTER_APPLIED = "FILTER_APPLIED"
-export const FILTER_REMOVED = "FILTER_REMOVED"
+export const FILTERS_UPDATED = "FILTERS_UPDATED"
+export const FILTERS_APPLIED = "FILTERS_APPLIED"
 
 const filtersFetched = filters => ({
     type: FILTERS_FETCHED,
@@ -15,22 +15,21 @@ export const getAllFilters= () => (dispatch) => {
     }, 500);
 }
 
-const filterApplied = (filter,state) => ({
-    type:FILTER_APPLIED,
+const filtersUpdated = (filter,state) => ({
+    type: FILTERS_UPDATED,
     state:state,
     payload:filter
 })
 
-const filterRemoved= (filter,state) => ({
-    type:FILTER_REMOVED,
-    state:state,
-    payload:filter
+export const updateFilters = (filter) => (dispatch,getState) => {
+    dispatch(filtersUpdated(filter,getState()))
+}
+
+const filtersApplied = (state) => ({
+    type: FILTERS_APPLIED,
+    state:state
 })
 
-export const applyFilter = (filter) => (dispatch,getState) => {
-    if (filter["Active"]){
-        dispatch(filterRemoved(filter,getState()))
-    }else{
-        dispatch(filterApplied(filter,getState()))
-    }
+export const applyFilters = () => (dispatch,getState) => {
+    dispatch(filtersApplied(getState()))
 }

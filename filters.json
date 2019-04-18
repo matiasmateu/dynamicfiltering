@@ -7,14 +7,20 @@
     },
     {
         "id":2,
-        "Key":"Status",
-        "Value":"In progress",
+        "Key":"Color",
+        "Value":"black",
         "Active":false
     },
     {
         "id":3,
-        "Key":"Status",
-        "Value":"Closed",
+        "Key":"Type",
+        "Value":"Installation",
+        "Active":false
+    },
+    {
+        "id":4,
+        "Key":"Color",
+        "Value":"purple",
         "Active":false
     }
 ]

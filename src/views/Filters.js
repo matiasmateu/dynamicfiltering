@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, Content, ListItem, CheckBox, Body,  } from 'native-base';
-import { StyleSheet, ScrollView } from "react-native";
+import { View, Text, Content, ListItem, CheckBox, Body  } from 'native-base';
+import { StyleSheet, ScrollView, Button } from "react-native";
 import {connect} from 'react-redux'
-import {applyFilter} from '../../store/actions/filters'
+import {updateFilters,applyFilters} from '../../store/actions/filters'
 
 /**
  *  Creates a list of filters to be displayed in the sidebar menu
@@ -18,7 +18,10 @@ class FiltersView extends React.Component{
             {filters
               .map((filter,index)=>{
                 return (
-                <ListItem key={index} onPress={()=>this.props.applyFilter(filter)}>
+                <ListItem key={index} onPress={()=>{
+                  this.props.updateFilters(filter)
+                  this.props.applyFilters()
+                }}>
                   <CheckBox checked={filter["Active"]}/>
                   <Body><Text>{filter["Key"]}:{filter["Value"]}</Text></Body>
                 </ListItem>)
@@ -39,4 +42,4 @@ const mapStateToProps = state => ({
   filters: state.filters.filterList
 })
 
-export default connect(mapStateToProps,{applyFilter})(FiltersView);
+export default connect(mapStateToProps,{updateFilters,applyFilters})(FiltersView);
