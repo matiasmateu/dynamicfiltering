@@ -13,14 +13,18 @@ import FiltersView from '../src/views/Filters';
 export const TabNavigator = createBottomTabNavigator(
   {
   'Work Orders':WorkOrders,
-  'Profile':ProfileScreen,
-  'Settings':SettingsScreen
+  // 'Profile':ProfileScreen,
+  // 'Settings':SettingsScreen
   },
   {
     navigationOptions:({navigation})=>{
       const {routeName} = navigation.state.routes[navigation.state.index]
       return {
-        headerTitle:routeName
+        headerTitle:routeName,
+        headerStyle:{
+          backgroundColor:PRIMARY_COLOR,
+        },
+        headerTintColor: '#fff',
       }
     }
   },
@@ -44,7 +48,7 @@ const StackNavigator = createStackNavigator({
     const {routeName} = navigation.state.routes[navigation.state.index]
     if (routeName === 'Work Orders') {
       return {
-        headerRight: <Icon name="md-funnel" size={30} style={{paddingRight:10}} onPress={()=>navigation.openDrawer()}/>
+        headerRight: <Icon name="md-funnel" size={30} style={{paddingRight:10,color:"white"}} onPress={()=>navigation.openDrawer()}/>
       }
     }
   }
@@ -63,7 +67,7 @@ export const AppDrawerNavigator = createDrawerNavigator({
 )
 
 export const AppSwitchNavigator = createSwitchNavigator({
-  welcome:{screen:WelcomeScreen},
+  welcome:{screen:AppDrawerNavigator},
   Dashboard:{screen:AppDrawerNavigator}
 })
 
