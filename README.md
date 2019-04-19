@@ -1,4 +1,4 @@
-# fieldbuddy
+# 
 Manage work orders for field technicians. Created with React Native &amp; Redux
   
 ## 1 - The case - Dynamic Filtering
