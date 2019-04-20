@@ -7,7 +7,7 @@ import {PRIMARY_COLOR} from '../constants/styles'
 import ProfileScreen from '../src/views/Profile'
 import SettingsScreen from '../src/views/Settings'
 import Icon from '@expo/vector-icons/Ionicons'
-import FiltersView from '../src/views/Filters';
+import FiltersView from '../src/views/filters/Filters';
 
 
 export const TabNavigator = createBottomTabNavigator(
