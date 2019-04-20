@@ -1,5 +1,11 @@
 [
     {
+        "general":true,
+        "date":true,
+        "custom":true,
+        "simple":true
+    },
+    {
         "Type":"Simple",
         "Key":"Status",
         "Value":"open",
