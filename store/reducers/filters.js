@@ -35,10 +35,22 @@ function updateFilters (filterList, filterToUpdate) {
         }
     })}
 
+function applySearchBy(workOrders,keyword){
+    if (keyword=='') {
+        return workOrders
+    }else{
+        return workOrders
+            .filter(workorder=>JSON.stringify(workorder).includes(keyword))
+    }
+}
+
 export default function filters (state=initialState,action){
     switch ( action.type ) {
         case "FILTERS_FETCHED":
-            return {filterList:action.payload}
+            return {
+                filterList:action.payload,
+                filteredWorkOrders:action.state.workOrders
+            }
         case "FILTERS_UPDATED":
             return {filterList : updateFilters (action.state.filters.filterList,action.payload)}
         case "FILTERS_APPLIED":
@@ -48,6 +60,8 @@ export default function filters (state=initialState,action){
             let newFilterList = action.state.filters.filterList
             newFilterList.push(action.payload)
             return {...state,filterList:newFilterList}
+        case "SEARCH_BY":
+            return {...state,filteredWorkOrders:applySearchBy(action.state.workOrders,action.payload)}
         default:
             return state
     }

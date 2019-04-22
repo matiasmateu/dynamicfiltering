@@ -4,15 +4,17 @@ export const FILTERS_FETCHED = "FILTERS_FETCHED"
 export const FILTERS_UPDATED = "FILTERS_UPDATED"
 export const FILTERS_APPLIED = "FILTERS_APPLIED"
 export const FILTER_CREATED = "FILTER_CREATED"
+export const SEARCH_BY = "SEARCH_BY"
 
-const filtersFetched = filters => ({
+const filtersFetched = (filters,state) => ({
     type: FILTERS_FETCHED,
-    payload:filters
+    payload:filters,
+    state:state
   })
 
-export const getAllFilters= () => (dispatch) => {  
+export const getAllFilters= () => (dispatch,getState) => {  
     setTimeout(function() {
-        dispatch(filtersFetched(filters))
+        dispatch(filtersFetched(filters,getState()))
     }, 500);
 }
 
@@ -43,4 +45,14 @@ const filterCreated = (filter,state) => ({
 
 export const createFilter = (filter) => (dispatch,getState) => {
     dispatch(filterCreated(filter,getState()))
+}
+
+const searchByApplied = (keyword,state) => ({
+    type:SEARCH_BY,
+    state:state,
+    payload:keyword
+})
+
+export const searchBy = (keyword) => (dispatch,getState) => {
+    dispatch(searchByApplied(keyword,getState()))
 }

@@ -10,8 +10,8 @@ import { Text, Spinner } from 'native-base'
 class WorkOrders extends React.Component {
 
     componentDidMount() {
-        this.props.getAllFilters()
         this.props.getAllWorkOrders()
+        this.props.getAllFilters()
     }
 
     render() {
@@ -26,10 +26,23 @@ class WorkOrders extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({
-    workOrders: state.filters.filteredWorkOrders || state.workOrders,
-    filters: state.filters.filterList,
-    isLoading:  ( state.workOrders.length <= 0 )
-})
+const mapStateToProps = state => {
+    switch (state.filters.filteredWorkOrders) {
+        case undefined:
+            return {
+                workOrders: state.workOrders,
+                filters: state.filters.filterList,
+                isLoading:  ( state.workOrders.length <= 0 )
+            }
+        default:
+            return {
+                workOrders: state.filters.filteredWorkOrders,
+                filters: state.filters.filterList,
+                isLoading:  ( state.workOrders.length <= 0 )
+            }
+    }
+}
+    
+
 
 export default connect(mapStateToProps, { getAllWorkOrders,getAllFilters,applyFilters })(WorkOrders);
