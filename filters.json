@@ -24,6 +24,14 @@
         "Active":false
     },
     {
+        "Type":"Text",
+        "Value":""
+    },
+    {
+        "Type":"Date",
+        "Value":null
+    },
+    {
         "Type":"Custom",
         "askUser":"Type"
     },
