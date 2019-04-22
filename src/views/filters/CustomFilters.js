@@ -5,7 +5,8 @@ import {updateFilters,applyFilters,createFilter} from '../../../store/actions/fi
 
 class CustomFilters extends React.Component{
     render(){
-        const {filters, createFilter,navigation} = this.props
+   
+        const {filters, createFilter,nav,applyFilters} = this.props
         if ((filters.length>=1)&&(filters[0].custom)){
             return (
                 <View style={{marginTop:24}}>
@@ -16,19 +17,22 @@ class CustomFilters extends React.Component{
                             return (
                             <Item key={index} floatingLabel style={{marginTop:12}}>
                                 <Label>{filter.askUser}</Label>
-                                <Input ref="demo" onSubmitEditing={(text)=>{
+                                <Input onSubmitEditing={(text)=>{
                                 if (text!==''){
                                     createFilter(
                                     {
                                         "Type":"Simple",
                                         "Key":filter.askUser,
                                         "Value":text.nativeEvent.text.toLowerCase(),
-                                        "Active":false
+                                        "Active":true
                                     }
                                     )
+                                    
                                 }  
-                                navigation.openDrawer()
+                                applyFilters()
+                                nav.openDrawer()
                                 }}/>
+                               
                             </Item>
                             )
                         }
@@ -39,6 +43,7 @@ class CustomFilters extends React.Component{
         }else{
             return (<View><Text></Text></View>)
         }
+    
     }
 }
 
@@ -47,4 +52,4 @@ const mapStateToProps = state => ({
     filters: state.filters.filterList
   })
   
-  export default connect(mapStateToProps,{updateFilters,applyFilters,createFilter})(CustomFilters);
+  export default connect(mapStateToProps,{updateFilters,applyFilters,createFilter,updateFilters,applyFilters})(CustomFilters);

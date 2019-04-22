@@ -1,17 +1,18 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {View, Text,DatePicker} from 'native-base'
+import {Button} from 'react-native'
 import {endOfToday,getDate,format} from 'date-fns'
-import {filterByDate} from '../../../store/actions/filters'
+import {filterByDate,updateFilters,applyFilters} from '../../../store/actions/filters'
 
 class DateFilter extends React.Component{
 
     render(){
-        const {filters,filterByDate} = this.props
+        const {filters,filterByDate,updateFilters,applyFilters} = this.props
         if ((filters.length>=1)&&(filters[0].date)){
             return(
                 <View style={{marginTop:24}}> 
-                    <Text>Fitler by Start Date:</Text>
+                    <Text>Filter by Start Date:</Text>
                     <DatePicker
                     defaultDate={new Date()}
                     locale={"en"}
@@ -22,9 +23,17 @@ class DateFilter extends React.Component{
                     placeHolderText="Select date"
                     textStyle={{ color: "green" }}
                     placeHolderTextStyle={{ color: "#d3d3d3" }}
-                    onDateChange={date => filterByDate(date)}
+                    onDateChange={date => {updateFilters(
+                                                {
+                                                    "Type":"Date",
+                                                    "Value":format(date,"DD/MM/YYYY")
+                                                }
+                                            )
+                                            applyFilters()
+                                }}
                     disabled={false}
-                    />
+                    >
+                    </DatePicker>
                 </View>
             )
         }else{
@@ -37,4 +46,4 @@ const mapStateToProps = state => ({
     filters: state.filters.filterList
   })
   
-export default connect(mapStateToProps,{filterByDate})(DateFilter);
+export default connect(mapStateToProps,{filterByDate,updateFilters,applyFilters})(DateFilter);

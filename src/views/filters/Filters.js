@@ -16,7 +16,7 @@ export default class FiltersView extends React.Component{
           <GeneralFilter />
           <DateFilter />
           <SimpleFilters />
-          <CustomFilters />
+          <CustomFilters nav={this.props.navigation}/>
         </Content>
       )   
   }
