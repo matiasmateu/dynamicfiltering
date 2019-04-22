@@ -1,16 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {View, Text,DatePicker} from 'native-base'
-import {endOfToday} from 'date-fns'
+import {endOfToday,getDate,format} from 'date-fns'
+import {filterByDate} from '../../../store/actions/filters'
 
 class DateFilter extends React.Component{
 
-    setDate(newDate) {
-        console.log(newDate)
-      }
-
     render(){
-        const {filters} = this.props
+        const {filters,filterByDate} = this.props
         if ((filters.length>=1)&&(filters[0].date)){
             return(
                 <View style={{marginTop:24}}> 
@@ -25,7 +22,7 @@ class DateFilter extends React.Component{
                     placeHolderText="Select date"
                     textStyle={{ color: "green" }}
                     placeHolderTextStyle={{ color: "#d3d3d3" }}
-                    onDateChange={date => this.setDate(endOfToday(date))}
+                    onDateChange={date => filterByDate(date)}
                     disabled={false}
                     />
                 </View>
@@ -40,4 +37,4 @@ const mapStateToProps = state => ({
     filters: state.filters.filterList
   })
   
-export default connect(mapStateToProps)(DateFilter);
+export default connect(mapStateToProps,{filterByDate})(DateFilter);

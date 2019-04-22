@@ -1,4 +1,5 @@
 import deepDiffer from 'react-native/lib/deepDiffer'
+import {format,isEqual} from 'date-fns'
 const initialState = {filterList:[]}
 
 /**
@@ -44,6 +45,13 @@ function applySearchBy(workOrders,keyword){
     }
 }
 
+function applyFilterByDate(workOrders,date){
+    return workOrders
+            .filter(workorder=>
+                format(workorder.StartDate,'DD/MM/YYYY')===format(date,'DD/MM/YYYY')
+            )
+}
+
 export default function filters (state=initialState,action){
     switch ( action.type ) {
         case "FILTERS_FETCHED":
@@ -62,6 +70,8 @@ export default function filters (state=initialState,action){
             return {...state,filterList:newFilterList}
         case "SEARCH_BY":
             return {...state,filteredWorkOrders:applySearchBy(action.state.workOrders,action.payload)}
+        case "FILTER_BY_DATE":
+            return {...state,filteredWorkOrders:applyFilterByDate(action.state.workOrders,action.payload)}
         default:
             return state
     }
