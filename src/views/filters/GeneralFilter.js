@@ -13,8 +13,17 @@ class GeneralFilter extends React.Component{
                 <View style={{marginTop:24}}> 
                         <Item floatingLabel>
                             <Label>Search by:</Label>
-                            <Input  onSubmitEditing={(text)=>{
-                                
+                            <Input  
+                                value={filters[1].Value}
+                                onChangeText={()=>{
+                                    updateFilters(
+                                        {
+                                            'Type':'Text',
+                                            'Value':this.value
+                                        }
+                                        )
+                                }}
+                                onSubmitEditing={(text)=>{
                                     updateFilters(
                                         {
                                             'Type':'Text',
@@ -22,8 +31,7 @@ class GeneralFilter extends React.Component{
                                         }
                                         )
                                     applyFilters()
-                                    }  
-                                }  
+                                    }}
                             />
                         </Item>
                 </View>

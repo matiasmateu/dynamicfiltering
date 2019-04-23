@@ -1,9 +1,18 @@
 [
     {
+        "settings":true,
         "general":true,
         "date":true,
         "custom":true,
         "simple":true
+    },
+    {
+        "Type":"Text",
+        "Value":""
+    },
+    {
+        "Type":"Date",
+        "Value":null
     },
     {
         "Type":"Simple",
@@ -22,14 +31,6 @@
         "Key":"Type",
         "Value":"installation",
         "Active":false
-    },
-    {
-        "Type":"Text",
-        "Value":""
-    },
-    {
-        "Type":"Date",
-        "Value":null
     },
     {
         "Type":"Custom",
