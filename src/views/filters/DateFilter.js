@@ -22,6 +22,10 @@ class DateFilter extends React.Component{
                 <View style={{marginTop:24}}> 
                     <Text>Filter by Start Date:</Text>
                     <DatePicker
+                    ref={picker => {
+                        this.datePicker = picker;
+                      }}
+                    chosenDate={filters[2].Value}
                     defaultDate={defaultDate}
                     locale={"en"}
                     timeZoneOffsetInMinutes={undefined}
@@ -38,7 +42,6 @@ class DateFilter extends React.Component{
                                                 }
                                             )
                                             applyFilters()
-
                                 }}
                     disabled={false}
                     >
