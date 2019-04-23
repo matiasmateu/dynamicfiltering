@@ -1,52 +1,46 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {View, Text,DatePicker} from 'native-base'
-import {Button} from 'react-native'
-import {endOfToday,getDate,format} from 'date-fns'
+import {View, Text} from 'native-base'
+import DatePicker from 'react-native-datepicker'
+import {format} from 'date-fns'
 import {filterByDate,updateFilters,applyFilters} from '../../../store/actions/filters'
 
 class DateFilter extends React.Component{
 
     render(){
-        const {filters,filterByDate,updateFilters,applyFilters} = this.props
+        const {filters,updateFilters,applyFilters} = this.props
         let defaultDate
-
-       
         if ((filters.length>=1)&&(filters[0].date)){
-            if (filters[2].Value===null){
-                dafaultDate = new Date()
-            }else{
-                defaultDate = filters[2].Value
-            }
             return(
                 <View style={{marginTop:24}}> 
-                    <Text>Filter by Start Date:</Text>
+                    <Text>Filter by Start Date: {filters[2].Value }</Text>
                     <DatePicker
-                    ref={picker => {
-                        this.datePicker = picker;
-                      }}
-                    chosenDate={filters[2].Value}
-                    defaultDate={defaultDate}
-                    locale={"en"}
-                    timeZoneOffsetInMinutes={undefined}
-                    modalTransparent={false}
-                    animationType={"fade"}
-                    androidMode={"default"}
-                    placeHolderText="Select date"
-                    textStyle={{ color: "green" }}
-                    placeHolderTextStyle={{ color: "#d3d3d3" }}
-                    onDateChange={date => {updateFilters(
-                                                {
-                                                    "Type":"Date",
-                                                    "Value":format(date,"DD/MM/YYYY")
-                                                }
-                                            )
-                                            applyFilters()
-                                }}
-                    disabled={false}
-                    >
-                    </DatePicker>
-                    
+                        style={{width: 200}}
+                        mode="date"
+                        placeholder="select date"
+                        format="DD/MM/YYYY"
+                        confirmBtnText="Confirm"
+                        cancelBtnText="Cancel"
+                        customStyles={{
+                        dateIcon: {
+                            position: 'absolute',
+                            left: 0,
+                            top: 4,
+                            marginLeft: 0
+                        },
+                        dateInput: {
+                            marginLeft: 36
+                        }
+                        }}
+                        onDateChange={(date) => {
+                                                updateFilters(
+                                                    {
+                                                        "Type":"Date",
+                                                        "Value":date
+                                                    })    
+                                                applyFilters()
+                        }}
+                    />
                 </View>
             )
         }else{
