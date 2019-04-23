@@ -6,6 +6,7 @@ export const FILTERS_APPLIED = "FILTERS_APPLIED"
 export const FILTER_CREATED = "FILTER_CREATED"
 export const SEARCH_BY = "SEARCH_BY"
 export const FILTER_BY_DATE = "FILTER_BY_DATE"
+export const REMOVE_ALL_FILTERS = "REMOVE_ALL_FILTERS"
 
 const filtersFetched = (filters,state) => ({
     type: FILTERS_FETCHED,
@@ -66,4 +67,13 @@ const filterByDateApplied = (date,state) => ({
 
 export const filterByDate = (date) => (dispatch,getState) => {
     dispatch(filterByDateApplied(date,getState()))
+}
+
+const filtersCleared = (state) => ({
+    type:REMOVE_ALL_FILTERS,
+    state:state
+})
+
+export const removeFilters = () => (dispatch,getState) => {
+    dispatch(filtersCleared(getState()))
 }

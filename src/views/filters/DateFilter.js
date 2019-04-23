@@ -9,12 +9,20 @@ class DateFilter extends React.Component{
 
     render(){
         const {filters,filterByDate,updateFilters,applyFilters} = this.props
+        let defaultDate
+
+       
         if ((filters.length>=1)&&(filters[0].date)){
+            if (filters[2].Value===null){
+                dafaultDate = new Date()
+            }else{
+                defaultDate = filters[2].Value
+            }
             return(
                 <View style={{marginTop:24}}> 
                     <Text>Filter by Start Date:</Text>
                     <DatePicker
-                    defaultDate={new Date()}
+                    defaultDate={defaultDate}
                     locale={"en"}
                     timeZoneOffsetInMinutes={undefined}
                     modalTransparent={false}
@@ -30,10 +38,12 @@ class DateFilter extends React.Component{
                                                 }
                                             )
                                             applyFilters()
+
                                 }}
                     disabled={false}
                     >
                     </DatePicker>
+                    
                 </View>
             )
         }else{

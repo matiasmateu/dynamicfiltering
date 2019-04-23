@@ -1,5 +1,6 @@
 import deepDiffer from 'react-native/lib/deepDiffer'
 import { format, isEqual } from 'date-fns'
+import { removeFilters } from '../actions/filters';
 const initialState = { filterList: [] }
 
 /**
@@ -93,6 +94,35 @@ function applyFilterByDate(workOrders, date) {
     )
 }
 
+/**
+* @filterList array with a list of the filters
+* 
+* @returns an array of filters all of them deactivated.
+*/
+function removeAllFilters(filterList){
+    let newFilterList = filterList.map(
+        filter => {
+            if (filter.Type==='Simple'){
+                filter.Active = false
+                return filter
+            }
+            if (filter.Type==='Date'){
+                filter.Value=null
+                return filter
+            }
+            if (filter.Type==='Text'){
+                filter.Value=''
+                return filter
+            }
+            if ((filter.settings)||(filter.Type==='Custom')){
+                return filter
+            }
+        }
+    )
+    return newFilterList
+}
+
+
 export default function filters(state = initialState, action) {
     switch (action.type) {
         case "FILTERS_FETCHED":
@@ -109,10 +139,11 @@ export default function filters(state = initialState, action) {
             let newFilterList = action.state.filters.filterList
             newFilterList.push(action.payload)
             return { ...state, filterList: newFilterList }
-        case "SEARCH_BY":
-            return { ...state, filteredWorkOrders: applySearchBy(action.state.workOrders, action.payload) }
-        case "FILTER_BY_DATE":
-            return { ...state, filteredWorkOrders: applyFilterByDate(action.state.workOrders, action.payload) }
+        case "REMOVE_ALL_FILTERS":
+            return { ...state, 
+                        filterList: removeAllFilters(action.state.filters.filterList),
+                        filteredWorkOrders: action.state.workOrders
+                    }
         default:
             return state
     }
